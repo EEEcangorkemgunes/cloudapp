@@ -1,7 +1,9 @@
 import { findUserByEmail } from "@/lib/user";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {}
+export async function GET(req: NextRequest) {
+  return NextResponse.json({ message: "Hello World!" });
+}
 export async function POST(req: NextRequest) {
   const body = await req.json();
   if (!body.email || !body.password) {
@@ -19,7 +21,7 @@ export async function POST(req: NextRequest) {
     return new NextResponse(
       JSON.stringify({ message: "User couldn't found" }),
       {
-        status: 200,
+        status: 404,
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
@@ -31,7 +33,7 @@ export async function POST(req: NextRequest) {
     return new NextResponse(
       JSON.stringify({ message: "Password is incorrect" }),
       {
-        status: 200,
+        status: 404,
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
