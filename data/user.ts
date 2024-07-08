@@ -1,6 +1,6 @@
 
 
-export const users: Array<User> = [
+export const users: Array<User>= [
   {
     email: "cangorkemgunes@gmail.com",
     password: "123456",
