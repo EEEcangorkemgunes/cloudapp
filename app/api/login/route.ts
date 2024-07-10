@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   const body = await req.json();
   if (!body.email || !body.password) {
-    return new NextResponse(JSON.stringify({ message: "Bad request!" }), {
+    return new NextResponse(JSON.stringify({ code: 0 }), {
       status: 400,
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -18,32 +18,26 @@ export async function POST(req: NextRequest) {
   //database bak
   const user = await findUserByEmail(body.email);
   if (!user) {
-    return new NextResponse(
-      JSON.stringify({ message: "User couldn't found" }),
-      {
-        status: 404,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        },
-      }
-    );
+    return new NextResponse(JSON.stringify({ code: 2 }), {
+      status: 404,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
   }
   if (body.password !== user.password) {
-    return new NextResponse(
-      JSON.stringify({ message: "Password is incorrect" }),
-      {
-        status: 404,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        },
-      }
-    );
+    return new NextResponse(JSON.stringify({ code: 3 }), {
+      status: 404,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
   }
   //token üret
 
-  return new NextResponse(JSON.stringify({ message: "User found" }), {
+  return new NextResponse(JSON.stringify({ code: 1 }), {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": "*",
