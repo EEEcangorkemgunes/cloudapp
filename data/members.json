@@ -4,7 +4,7 @@
         "exercise_plan": {
             "end_day": "2024-06-30",
             "start_day": "2024-06-01",
-            "weekly_plan": [
+            "weekly_exercise_plan": [
                 {
                     "cooldown_period": 2,
                     "last_done_date": "2024-06-22",
@@ -64,7 +64,7 @@
             {
                 "end_day": "2022-12-31",
                 "start_day": "2022-12-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -90,7 +90,7 @@
             {
                 "end_day": "2023-01-31",
                 "start_day": "2023-01-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -151,7 +151,7 @@
             {
                 "end_day": "2023-10-31",
                 "start_day": "2023-10-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -177,7 +177,7 @@
             {
                 "end_day": "2023-11-30",
                 "start_day": "2023-11-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -243,7 +243,7 @@
             {
                 "end_day": "2023-06-30",
                 "start_day": "2023-06-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -269,7 +269,7 @@
             {
                 "end_day": "2023-07-31",
                 "start_day": "2023-07-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -301,7 +301,7 @@
             {
                 "end_day": "2022-08-31",
                 "start_day": "2022-08-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -327,7 +327,7 @@
             {
                 "end_day": "2022-09-30",
                 "start_day": "2022-09-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -379,7 +379,7 @@
             {
                 "end_day": "2023-05-31",
                 "start_day": "2023-05-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -405,7 +405,7 @@
             {
                 "end_day": "2023-06-30",
                 "start_day": "2023-06-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -446,7 +446,7 @@
             {
                 "end_day": "2023-07-31",
                 "start_day": "2023-07-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -472,7 +472,7 @@
             {
                 "end_day": "2023-08-31",
                 "start_day": "2023-08-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -547,7 +547,7 @@
             {
                 "end_day": "2023-04-30",
                 "start_day": "2023-04-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -573,7 +573,7 @@
             {
                 "end_day": "2023-05-31",
                 "start_day": "2023-05-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -607,7 +607,7 @@
             {
                 "end_day": "2022-06-30",
                 "start_day": "2022-06-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -633,7 +633,7 @@
             {
                 "end_day": "2022-07-31",
                 "start_day": "2022-07-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -685,7 +685,7 @@
             {
                 "end_day": "2023-03-31",
                 "start_day": "2023-03-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
@@ -711,7 +711,7 @@
             {
                 "end_day": "2023-04-30",
                 "start_day": "2023-04-01",
-                "weekly_plan": [
+                "weekly_exercise_plan": [
                     {
                         "exercise": {
                             "cooldown_period": 2,
