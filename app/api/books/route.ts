@@ -1,6 +1,8 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+
+  return NextResponse.json({message:"asdf"})
   //tokenı kontrol et
   //kullanıcının bu veriyi görmeye izni var mı
   //databaseden veriyi çek
