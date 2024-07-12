@@ -12,17 +12,17 @@
                             "name": "Bench Press",
                             "repeat": 12,
                             "set": 3,
-                            "type": "chest"
+                            "type": "Chest"
                         },{
                             "name": "Lat Pull Down",
                             "repeat": 10,
                             "set": 3,
-                            "type": "back"
+                            "type": "Back"
                         },{
                             "name": "Overhead Press",
                             "repeat": 8,
                             "set": 3,
-                            "type": "shoulder"
+                            "type": "Shoulder"
                         }
                     ]
                 },
@@ -30,20 +30,19 @@
                     "cooldown_period": 3,
                     "daily_exercise" :[
                         {
-                            "name": "Bench Press",
-                            "repeat": 8,
-                            "set": 2,
-                            "type": "chest"
-                        },{
-                            "name": "Lat Pull Down",
-                            "repeat": 8,
-                            "set": 3,
-                            "type": "back"
-                        },{
                             "name": "Overhead Press",
                             "repeat": 8,
+                            "set": 2,
+                            "type": "Shoulder"
+                        },{
+                            "name": "Barbell Row",
+                            "repeat": 8,
                             "set": 3,
-                            "type": "shoulder"
+                            "type": "Arm"
+                        },{
+                            "name": "Treadmill Running",
+                            "durition": 15,
+                            "type": "Cardio"
                         }
                     ]
                 }
