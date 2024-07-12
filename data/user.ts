@@ -9,6 +9,6 @@ export const users: Array<User> = [
   },
   {
     email: "admin",
-    password: "",
+    password: "123",
   },
 ];
