@@ -7,27 +7,44 @@
             "weekly_exercise_plan": [
                 {
                     "cooldown_period": 2,
-                    "last_done_date": "2024-06-22",
-                    "name": "Bench Press",
-                    "repeat": 12,
-                    "set": 3,
-                    "type": "chest"
+                    "daily_exercise" :[
+                        {
+                            "name": "Bench Press",
+                            "repeat": 12,
+                            "set": 3,
+                            "type": "chest"
+                        },{
+                            "name": "Lat Pull Down",
+                            "repeat": 10,
+                            "set": 3,
+                            "type": "back"
+                        },{
+                            "name": "Overhead Press",
+                            "repeat": 8,
+                            "set": 3,
+                            "type": "shoulder"
+                        }
+                    ]
                 },
                 {
                     "cooldown_period": 3,
-                    "last_done_date": "2024-06-21",
-                    "name": "Lat Pull Down",
-                    "repeat": 10,
-                    "set": 3,
-                    "type": "back"
-                },
-                {
-                    "cooldown_period": 2,
-                    "last_done_date": "2024-06-20",
-                    "name": "Overhead Press",
-                    "repeat": 8,
-                    "set": 3,
-                    "type": "shoulder"
+                    "daily_exercise" :[
+                        {
+                            "name": "Bench Press",
+                            "repeat": 8,
+                            "set": 2,
+                            "type": "chest"
+                        },{
+                            "name": "Lat Pull Down",
+                            "repeat": 8,
+                            "set": 3,
+                            "type": "back"
+                        },{
+                            "name": "Overhead Press",
+                            "repeat": 8,
+                            "set": 3,
+                            "type": "shoulder"
+                        }
                 }
             ]
         },
