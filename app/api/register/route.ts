@@ -1,15 +1,16 @@
-import { users } from "@/data/user";
+import { owners } from "@/data/owners";
 import { findUserByEmail } from "@/lib/user";
-import { UserRegisterSchema } from "@/models/userzod";
+import { OwnerRegisterSchema } from "@/models/ownerzod";
+import { randomUUID } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const user = UserRegisterSchema.safeParse(body);
+  const user = OwnerRegisterSchema.safeParse(body);
   if (user.success) {
     const registeredUser = await findUserByEmail(user.data.email);
     if (!registeredUser) {
-      users.push(user.data);
+      owners.push({ ...user.data, id: crypto.randomUUID() });
       return new NextResponse(null, {
         status: 201,
         headers: {

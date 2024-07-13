@@ -1,4 +1,5 @@
-type User = {
+type Owner = {
   email: string;
   password: string;
+  id: string;
 };
