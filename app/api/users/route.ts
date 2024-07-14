@@ -1,10 +1,83 @@
 import { NextRequest, NextResponse } from "next/server";
-import members from "@/data/members.json";
 import fs from "fs";
 import path from "path";
+import { headers } from "next/headers";
+import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
+type User = {
+  email: string;
+  id: string;
+  iat: bigint;
+  exp: bigint;
+};
 export async function GET(req: NextRequest) {
-  return new NextResponse(JSON.stringify(members), {
+  const token = headers().get("Authorization")?.split(" ")[1];
+  if (!token) {
+    return new Response(null, {
+      status: 403,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  }
+  try {
+    let user: any;
+    let fl: any;
+    jwt.verify(token, process.env.AUTH_SECRET!, (err, decoded) => {
+      if (err) {
+      }
+      user = decoded;
+    });
+    console.log("user", user.id);
+    const data = await fs.promises.readFile(
+      path.join(process.cwd(), "data", `${user.id}.json`),
+      "utf-8"
+    );
+    console.log(data);
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  } catch (err) {
+    console.log("users token error:", err);
+    return new Response(null, {
+      status: 401,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  }
+}
+
+export async function POST(req: NextRequest) {
+  const data = await req.json();
+  fs.writeFile(
+    path.join(process.cwd(), "data", `1.json`), //${data.fileName}
+    JSON.stringify(data, null, 2),
+    (err) => {
+      if (err) {
+        return new NextResponse(JSON.stringify({ err: err }), {
+          status: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          },
+        });
+      }
+    }
+  );
+
+  return new NextResponse(JSON.stringify({ message: "ok" }), {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -14,17 +87,8 @@ export async function GET(req: NextRequest) {
   });
 }
 
-export async function POST(req: NextRequest) {
-  const data = await req.json();
-  fs.writeFile(
-    path.join(process.cwd(), "data", `1.json`), //${data.fileName}
-    JSON.stringify(data, null, 2),
-    (err) => {
-      console.log(err);
-    }
-  );
-
-  return new NextResponse(JSON.stringify({ message: "ok" }), {
+export async function OPTIONS() {
+  return new Response(null, {
     status: 200,
     headers: {
       "Access-Control-Allow-Origin": "*",

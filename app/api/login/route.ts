@@ -1,11 +1,13 @@
 import { findUserByEmail } from "@/lib/user";
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 export async function GET(req: NextRequest) {
   return NextResponse.json({ message: "Hello World!" });
 }
 export async function POST(req: NextRequest) {
+  const cks = cookies();
   const body = await req.json();
   if (!body.email || !body.password) {
     return new NextResponse(JSON.stringify({ code: 0 }), {
@@ -43,13 +45,16 @@ export async function POST(req: NextRequest) {
   const secret = process.env.AUTH_SECRET || "thismustbeasecret";
   const token = jwt.sign(owner, secret, { expiresIn: "12h" });
   console.log("token:", token);
-  const decoded = jwt.verify(token, secret);
-  console.log("decoded:", decoded);
-  return new NextResponse(JSON.stringify({ code: 1, Authorization: token }), {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-    },
-  });
+
+  return Response.json(
+    { code: 1, Authorization: token },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "Set-Cookie": `asd=white`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    }
+  );
 }
