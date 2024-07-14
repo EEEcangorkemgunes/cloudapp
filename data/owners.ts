@@ -10,8 +10,8 @@ export const owners: Array<Owner> = [
     password: "654321",
   },
   {
-    id: "3",
+    id: "0",
     email: "admin",
-    password: "",
+    password: "123",
   },
 ];
