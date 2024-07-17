@@ -99,3 +99,56 @@ export async function OPTIONS() {
     },
   });
 }
+
+export async function PUT(req: NextRequest) {
+  const token = headers().get("Authorization")?.split(" ")[1];
+  if (!token) {
+    return new Response(null, {
+      status: 403,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  }
+  try {
+    let user: any;
+    let fl: any;
+    jwt.verify(token, process.env.AUTH_SECRET!, (err, decoded) => {
+      if (err) {
+      }
+      user = decoded;
+    });
+    console.log("user", user.id);
+    const data = await fs.promises.readFile(
+      path.join(process.cwd(), "data", `${user.id}.json`),
+      "utf-8"
+    );
+
+    const new_data = await req.json();
+    const filePath = path.join(process.cwd(), 'data', `${user.id}.json`);
+    await fs.promises.writeFile(filePath,
+                                JSON.stringify(new_data, null, 2),
+                                'utf-8');
+    
+    return new Response(JSON.stringify({ message: "data updated" }), {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  } catch (err) {
+    console.log("users token error:", err);
+    return new Response(null, {
+      status: 401,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    });
+  }
+}
