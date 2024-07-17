@@ -36,9 +36,9 @@ export async function GET(req: NextRequest) {
       path.join(process.cwd(), "data", `${user.id}.json`),
       "utf-8"
     );
-    console.log(data);
-    const jsonData = JSON.parse(data);
-    return new Response(JSON.stringify(jsonData), {
+    //console.log(data);
+    //const jsonData = JSON.parse(data);
+    return new Response(data, {
       status: 200,
       headers: {
         "Content-Type": "application/json",
