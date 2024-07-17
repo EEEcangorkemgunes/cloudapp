@@ -37,7 +37,8 @@ export async function GET(req: NextRequest) {
       "utf-8"
     );
     console.log(data);
-    return new Response(JSON.stringify(data), {
+    const jsonData = JSON.parse(data);
+    return new Response(JSON.stringify(jsonData), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
