@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       });
     }
   }
-  return new NextResponse(JSON.stringify({ message: "Bad Request" }), {
+  return new NextResponse(JSON.stringify({ code: 0 }), {
     status: 400,
     headers: {
       "Access-Control-Allow-Origin": "*",

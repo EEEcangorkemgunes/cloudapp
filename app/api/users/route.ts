@@ -55,6 +55,19 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.log("users token error:", err);
+    if(err.code === "ENOENT"){
+      return new Response( null,
+                          {
+                            status: 204,
+                            headers: {
+                              "Content-Type": "application/json",
+                              "Access-Control-Allow-Origin": "*",
+                              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                              "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                            },
+                          });
+    }
+    
     return new Response(null, {
       status: 401,
       headers: {
