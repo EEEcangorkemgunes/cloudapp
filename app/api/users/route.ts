@@ -53,8 +53,10 @@ export async function GET(req: NextRequest) {
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
     });
-  } catch (err) {
+  } catch (err:any) {
     console.log("users token error:", err);
+    
+    //if(err instanceof Error)
     if(err.code === "ENOENT"){
       return new Response( null,
                           {
