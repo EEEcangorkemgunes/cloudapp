@@ -11,6 +11,12 @@ type User = {
   iat: bigint;
   exp: bigint;
 };
+
+/**
+ * Below section is for GET responses
+ * GET is to get members.json that belongs to requester
+ */
+
 export async function GET(req: NextRequest) {
   const token = headers().get("Authorization")?.split(" ")[1];
   if (!token) {
@@ -60,7 +66,12 @@ export async function GET(req: NextRequest) {
   }
 }
 
-export async function POST(req: NextRequest) {
+/**
+ * Below section is for POST responses
+ * What is POST request for?
+ */
+
+/*export async function POST(req: NextRequest) {
   const data = await req.json();
   fs.writeFile(
     path.join(process.cwd(), "data", `1.json`), //${data.fileName}
@@ -87,9 +98,10 @@ export async function POST(req: NextRequest) {
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
     },
   });
-}
+}*/
 
-export async function OPTIONS() {
+// OPTIONS ?
+/*export async function OPTIONS() {
   return new Response(null, {
     status: 200,
     headers: {
@@ -98,7 +110,12 @@ export async function OPTIONS() {
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
     },
   });
-}
+}*/
+
+/**
+ * Below section is for PUT responses
+ * PUT is to save members.json that belongs to requester
+ */
 
 export async function PUT(req: NextRequest) {
   const token = headers().get("Authorization")?.split(" ")[1];
@@ -120,11 +137,13 @@ export async function PUT(req: NextRequest) {
       }
       user = decoded;
     });
-    console.log("user", user.id);
-    const data = await fs.promises.readFile(
+    
+    //console.log("user", user.id);
+    
+    /*const data = await fs.promises.readFile(
       path.join(process.cwd(), "data", `${user.id}.json`),
       "utf-8"
-    );
+    );*/
 
     const new_data = await req.json();
     const filePath = path.join(process.cwd(), 'data', `${user.id}.json`);
